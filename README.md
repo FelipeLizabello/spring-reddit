@@ -1,5 +1,7 @@
 # spring-auth-jwt
 
+**Status:** In development
+
 REST API for user authentication using Spring Boot and JWT.
 
 ## Technologies
