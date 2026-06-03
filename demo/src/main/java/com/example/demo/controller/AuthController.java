@@ -18,9 +18,9 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> savePassword(@RequestBody @Valid UserDto dto){
+    public ResponseEntity<String> register(@RequestBody @Valid UserDto dto){
         try{
-            service.savePassword(dto);
+            service.register(dto);
         }catch(Exception e){
             return new ResponseEntity<String>("Erro ao salvar senha", HttpStatus.INTERNAL_SERVER_ERROR);
         }

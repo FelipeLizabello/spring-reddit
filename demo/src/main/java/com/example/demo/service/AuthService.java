@@ -13,11 +13,11 @@ public class AuthService {
     private final UserRepository repo;
 
     @Autowired
-    private AuthService(UserRepository repo){
+    public AuthService(UserRepository repo){
         this.repo = repo;
     }
 
-    public void savePassword(UserDto dto){
+    public void register(UserDto dto){
         User user = new User();
         user.setEmail(dto.getEmail());
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
