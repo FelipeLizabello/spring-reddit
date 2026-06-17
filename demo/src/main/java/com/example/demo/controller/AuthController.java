@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.LoginRequest;
 import com.example.demo.dto.UserDto;
 import com.example.demo.service.AuthService;
 import jakarta.validation.Valid;
@@ -26,4 +27,17 @@ public class AuthController {
         }
         return new ResponseEntity<String>("Senha salva com sucesso", HttpStatus.CREATED);
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login (@RequestBody @Valid LoginRequest login){
+        String token;
+
+        try{
+            token = service.login(login);
+        }catch(Exception e){
+            return new ResponseEntity<String>("Erro ao logar", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<String>(token, HttpStatus.OK);
+    }
+
 }
