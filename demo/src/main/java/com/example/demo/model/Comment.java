@@ -1,34 +1,29 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter @Setter
-@Table(name = "posts")
-@Entity(name = "Posts")
-public class Posts {
+@Table(name = "comment")
+@Entity(name = "Comment")
+public class Comment {
 
-    @Id
+    @Id()
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String title;
-
-    @Column(nullable = false)
-    @Lob
+    @Column(nullable=false)
     private String content;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "posts")
-    private List<Comment> comment;
-
-    private int score = 0;
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    @JsonIgnore()
+    private Posts posts;
 
 }

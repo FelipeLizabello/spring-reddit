@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.LoginRequest;
-import com.example.demo.dto.UserDto;
+import com.example.demo.dto.UserDTO;
 import com.example.demo.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody @Valid UserDto dto){
+    public ResponseEntity<String> register(@RequestBody @Valid UserDTO dto){
         try{
             service.register(dto);
         }catch(Exception e){

@@ -1,14 +1,12 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.LoginRequest;
-import com.example.demo.dto.UserDto;
+import com.example.demo.dto.UserDTO;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class AuthService {
@@ -22,7 +20,7 @@ public class AuthService {
         this.jwt = jwt;
     }
 
-    public void register(UserDto dto){
+    public void register(UserDTO dto){
         User user = new User();
         user.setEmail(dto.getEmail());
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();

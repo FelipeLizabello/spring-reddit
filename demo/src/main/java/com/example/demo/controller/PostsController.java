@@ -44,5 +44,10 @@ public class PostsController {
         return ResponseEntity.ok(service.findAll());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Posts> getPostById(@AuthenticationPrincipal User user,
+                                                      @PathVariable Long id){
+        return ResponseEntity.ok(service.findById(id));
+    }
 
 }

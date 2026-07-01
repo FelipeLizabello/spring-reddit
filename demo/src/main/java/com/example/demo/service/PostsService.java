@@ -38,7 +38,9 @@ public class PostsService {
         return repo.findByUser_Id(user.getId());
     }
 
-
+    public Posts findById(Long postId){
+        return repo.findById(postId).orElseThrow();
+    }
 
 
 }
